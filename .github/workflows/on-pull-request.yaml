@@ -3,7 +3,7 @@ name: on-pull-request
 on:
   push:
     branches: ["main"]
-  pull_request:
+  pull_request_target:
     branches: ["main"]
 
 jobs:
@@ -11,3 +11,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - run: echo "test pipeline foo"
+    - run: echo "${{ secrets.FOO }}"
+    - run: echo "and in a second commit, that does NOT change the trigger event?"
